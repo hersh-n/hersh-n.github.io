@@ -1,3 +1,74 @@
+:root {
+  --green: #214E34;
+  --lilac: #A886B9;
+  --ivory: #EbE3D6;
+  --blue: #105D9E;
+  --off-black: #191919;
+  --brown: #8c603f;
+
+  /* Font sizes */
+  --base-font-size: 16px; /* Default base font size */
+
+  --body-font-size: var(--base-font-size); /* Body text font size */
+
+  --heading-1-font-size: calc(var(--base-font-size) * 2); /* H1 font size */
+  --heading-2-font-size: calc(var(--base-font-size) * 1.5); /* H2 font size */
+  --heading-3-font-size: calc(var(--base-font-size) * 1.25); /* H3 font size */
+  --heading-4-font-size: var(--base-font-size); /* H4 font size */
+  --heading-5-font-size: calc(var(--base-font-size) * 0.875); /* H5 font size */
+  --heading-6-font-size: calc(var(--base-font-size) * 0.75); /* H6 font size */
+
+  /* Navigation menu font size */
+  --nav-font-size: var(--base-font-size);
+
+  /* Button font size */
+  --button-font-size: var(--base-font-size);
+
+  /* Additional font sizes */
+  /* Add more font size variables as needed */
+}
+
+body {
+  font-size: var(--body-font-size);
+}
+
+h1 {
+  font-size: var(--heading-1-font-size);
+}
+
+h2 {
+  font-size: var(--heading-2-font-size);
+}
+
+h3 {
+  font-size: var(--heading-3-font-size);
+}
+
+h4 {
+  font-size: var(--heading-4-font-size);
+}
+
+h5 {
+  font-size: var(--heading-5-font-size);
+}
+
+h6 {
+  font-size: var(--heading-6-font-size);
+}
+
+nav {
+  font-size: var(--nav-font-size);
+}
+
+button {
+  font-size: var(--button-font-size);
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  background-color: var(--ivory); /* Use the ivory color variable */
+}
+
 .hero-section {
   background-image: url('hero-image.jpg');
   background-size: cover;
