@@ -1,4 +1,13 @@
+/* Define @font-face rule for Recoleta-Bold */
+@font-face {
+  font-family: 'Recoleta';
+  src: url('assets/fonts/Recoleta-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+/* Define global variables */
 :root {
+  /* Colors */
   --green: #214E34;
   --lilac: #A886B9;
   --ivory: #EbE3D6;
@@ -7,27 +16,25 @@
   --brown: #8c603f;
 
   /* Font sizes */
-  --base-font-size: 16px; /* Default base font size */
-
-  --body-font-size: var(--base-font-size); /* Body text font size */
-
-  --heading-1-font-size: calc(var(--base-font-size) * 2); /* H1 font size */
-  --heading-2-font-size: calc(var(--base-font-size) * 1.5); /* H2 font size */
-  --heading-3-font-size: calc(var(--base-font-size) * 1.25); /* H3 font size */
-  --heading-4-font-size: var(--base-font-size); /* H4 font size */
-  --heading-5-font-size: calc(var(--base-font-size) * 0.875); /* H5 font size */
-  --heading-6-font-size: calc(var(--base-font-size) * 0.75); /* H6 font size */
-
-  /* Navigation menu font size */
+  --base-font-size: 16px;
+  --body-font-size: var(--base-font-size);
+  --heading-1-font-size: calc(var(--base-font-size) * 2);
+  --heading-2-font-size: calc(var(--base-font-size) * 1.5);
+  --heading-3-font-size: calc(var(--base-font-size) * 1.25);
+  --heading-4-font-size: var(--base-font-size);
+  --heading-5-font-size: calc(var(--base-font-size) * 0.875);
+  --heading-6-font-size: calc(var(--base-font-size) * 0.75);
   --nav-font-size: var(--base-font-size);
-
-  /* Button font size */
   --button-font-size: var(--base-font-size);
-
-  /* Additional font sizes */
-  /* Add more font size variables as needed */
 }
 
+/* Apply Recoleta-Bold font to specific elements */
+h1, h2, h3, h4 {
+  font-family: 'Recoleta', sans-serif;
+  font-weight: bold;
+}
+
+/* Apply global font sizes */
 body {
   font-size: var(--body-font-size);
 }
@@ -64,13 +71,18 @@ button {
   font-size: var(--button-font-size);
 }
 
+/* Additional styles */
 body {
   font-family: 'Karla', sans-serif;
   background-color: var(--ivory); /* Use the ivory color variable */
 }
 
+.blue {
+color: var(--blue)
+}
+
 .hero-section {
-  background-image: url('hero-image.jpg');
+  background-image: url('assets/images/DSC00505-2.jpg');
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -87,35 +99,69 @@ body {
   margin-bottom: 30px;
 }
 
+/* Features Section */
 .features-section {
   padding: 100px 0;
 }
 
 .feature-box {
-  background-color: #007bff;
-  color: #fff;
-  text-align: center;
-  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; /* Ensure both boxes are of equal height */
+
+}
+
+.feature-content {
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.feature-box .feature-content {
+  flex: 1;
+  background-color: var(--green);
+  color: var(--ivory);
   border-radius: 10px;
 }
 
-.feature-box h2 {
+.feature-box .feature-content h2 {
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-.feature-box p {
+.feature-box .feature-content p {
   font-size: 18px;
   margin-bottom: 20px;
 }
 
 .feature-image {
-  margin-top: 30px;
+  flex: 1;
+  height: 100%;
+  background-image: url('assets/images/DSC00505-2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-position: center;
+  border-radius: 10px;
 }
 
-.feature-image img {
-  width: 100%;
+.header-text{
+  color: var(--blue);
+}
+
+.photo-section {
+  padding: 100px 0;
+}
+
+.photo-box {
   border-radius: 15px;
+  overflow: hidden;
+}
+
+.photo-box img {
+  display: block;
+  width: 100%;
+  border-radius: inherit;
 }
 
 @media (max-width: 768px) {
