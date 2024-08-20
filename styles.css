@@ -119,16 +119,174 @@ ul {
   color: var(--ivory);
 }
 
-.blue {
-color: var(--blue)
+/* Base button styles */
+.main-CTA {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--blue);
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.5s ease;
+  border: none;
 }
 
+/* Create the background color effect */
+.main-CTA:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--ivory);
+  z-index: 0;
+  transition: left 0.5s ease;
+}
+
+/* Move the background color on hover */
+.main-CTA:hover:before {
+  left: 0;
+}
+
+/* Change the text color on hover */
+.main-CTA:hover span {
+  color: var(--blue);
+}
+
+/* Ensure the text is above the background animation */
+.main-CTA span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+
+.blue {
+  color: var(--blue);
+}
+
+
+.hero-text {
+  color: var(--ivory);
+}
+
+
+
+/* Navbar styling */
+header.navbar {
+  position: fixed; /* Ensure the navbar stays at the top */
+  width: 100%;
+  z-index: 1000; /* Ensure the navbar is on top of other elements */
+  transition: opacity 0.5s, top 0.5s; /* Smooth transition for fade and movement */
+}
+
+.nav-link {
+  color: var(--ivory);
+}
+
+.instagram-icon {
+  font-size: 32px;
+}
+
+
+/* Navbar Toggler Button */
+.navbar-toggler {
+  background-color: white; /* Set hamburger button color */
+}
+
+/* Overlay Styles */
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background with transparency */
+  z-index: 9999;
+  overflow-x: hidden;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overlay-content a,
+.overlay-content button {
+  text-decoration: none;
+  font-size: 24px;
+  color: white;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.overlay-content a:hover,
+.overlay-content button:hover {
+  color: var(--blue); /* Change text color on hover */
+}
+
+/* Close Button */
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 36px;
+  color: white;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Show the overlay */
+.overlay.d-none {
+  display: none;
+}
+
+/* When overlay is open */
+.overlay.open {
+  display: flex;
+}
+
+.white-text {
+  color: var(--ivory);
+}
+
+
+/* Ensure the section takes the full height of the viewport */
 .hero-section {
-/*  background-image: url('assets/images/DSC00505-2.jpg');*/
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  padding: 150px 0;
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+  overflow: hidden; /* Prevent content overflow */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  
+}
+
+.hero-container {
+  margin-bottom: 2em;
+}
+
+/* Style the background image to cover the entire section */
+.hero-img-background {
+  background-image: url('assets/images/pond-wide-dark-reduced.png'); /* Replace with your image path */
+  background-size: cover; /* Make the background cover the entire section */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  width: 100%;
+  height: 100%; /* Ensures it fills the section */
+  display: flex; /* Enables flexbox to center content */
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
 }
 
 .hero-section h1 {
@@ -226,6 +384,7 @@ color: var(--blue)
 .panel p {
   margin-bottom: 0; /* Remove default margin for paragraph */
 }
+
 
 @media (min-width: 768px) {
 

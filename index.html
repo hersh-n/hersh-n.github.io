@@ -8,47 +8,86 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-      <img src="logo.png" alt="Logo" height="40">
-    </a>
+<!-- Header -->
+<header class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container align-items-start"> <!-- Align items to the top -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
+
+
+
+    <div class="navbar-collapse collapse w-100 dual-collapse2" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link text-white" href="#">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link text-white" href="#">Activities</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
+          <a class="nav-link text-white" href="#">Unique stays</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-primary ml-2">Book Now</button>
+          <a class="nav-link text-white" href="#">Contact</a>
         </li>
       </ul>
     </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section text-center">
-    <div class="container">
-      <h1 class="blue">Total nature immersion, for meaningful gatherings, and intentional living.</h1>
-      <p class="blue">Luxury Riverside Rental in Bancroft, Ontario</p>
-      <button class="btn btn-dark btn-success btn-lg mt-3">Book for Summer 2024</button>
+        <div class="mx-auto">
+      <a class="navbar-brand mx-auto" href="#" style="height: 120px;">
+        <img src="assets/images/bf-icon-inverse.png" alt="Logo" style="height: 100%;">
+      </a>
     </div>
-  </section>
+
+    <div class="navbar-collapse collapse w-100 dual-collapse2" id="navbarNavRight">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white instagram-icon" href="#"><i class="fab fa-instagram"></i></a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-dark btn-success btn-lg">Book Now</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Overlay for the mobile menu -->
+  <div class="overlay d-none" id="overlay">
+    <button class="closebtn" onclick="closeNav()">&times;</button>
+    <div class="overlay-content">
+      <a href="#">About</a>
+      <a href="#">Activities</a>
+      <a href="#">Unique stays</a>
+      <a href="#">Contact</a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <button class="btn btn-dark btn-success btn-lg">Book Now</button>
+    </div>
+  </div>
+</header>
+  <!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-img-background d-flex align-items-end">
+    <div class="container hero-container">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 split-text-feature-box">
+          <h1 class="hero-text">Total nature immersion, for meaningful gatherings, and intentional living.</h1>
+          <p class="white-text">Luxury Riverside Rental in Bancroft, Ontario</p>
+<button class="btn main-CTA"><span>Book Now</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 
 <!-- Features Section -->
 <section class="features-section">
@@ -454,45 +493,17 @@ Get in touch with us to learn more. </p>
 </section>
 
 
-
 <footer class="footer">
   <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <img src="logo.png" alt="Logo">
-      </div>
-      <div class="col-md-9">
-        <div class="row">
-          <div class="col-md-4">
-            <h4>Section 1</h4>
-            <ul>
-              <li>Link 1</li>
-              <li>Link 2</li>
-              <li>Link 3</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <h4>Section 2</h4>
-            <ul>
-              <li>Link 1</li>
-              <li>Link 2</li>
-              <li>Link 3</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <h4>Section 3</h4>
-            <ul>
-              <li>Link 1</li>
-              <li>Link 2</li>
-              <li>Link 3</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div class="d-flex justify-content-between">
+      <a href="#">Instagram</a>
+      <a href="#">Contact</a>
+      <a href="#">FAQ</a>
+      <a href="#">Credits</a>
+      <a href="#">Legal stuff</a>
     </div>
   </div>
 </footer>
-
 
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
