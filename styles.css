@@ -36,6 +36,18 @@
   --section-margin-mobile:10%;
 
   --feature-section-padding-lg: 70px 50px 70px 50px;
+  --feature-section-padding-xl: 70px 150px 70px 150px;
+  --feature-section-padding-xxl: 280px 200px 280px 200px;
+
+
+
+  --fs-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
+  --fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
+  --fs-md: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
+  --fs-lg: clamp(1.56rem, 1vi + 1.31rem, 2.11rem);
+  --fs-xl: clamp(1.95rem, 1.56vi + 1.56rem, 2.81rem);
+  --fs-xxl: clamp(2.44rem, 2.38vi + 1.85rem, 3.75rem);
+  --fs-xxxl: clamp(3.05rem, 3.54vi + 2.17rem, 5rem);
 }
 
 /* Apply Recoleta-Bold font to specific elements */
@@ -46,23 +58,24 @@ h1, h2, h3, h4 {
 
 /* Apply global font sizes */
 body {
-  font-size: var(--body-font-size);
+  font-size: var(--fs-base);
+/*  font-size: var(--body-font-size);*/
 }
 
 h1 {
-  font-size: var(--heading-1-font-size);
+  font-size: var(--fs-xxl);
 }
 
 h2 {
-  font-size: var(--heading-2-font-size);
+  font-size: var(--fs-xl);
 }
 
 h3 {
-  font-size: var(--heading-3-font-size);
+  font-size: var(--fs-lg);
 }
 
 h4 {
-  font-size: var(--heading-4-font-size);
+  font-size: var(--fs-md);
 }
 
 h5 {
@@ -74,22 +87,24 @@ h6 {
 }
 
 nav {
-  font-size: var(--nav-font-size);
+  font-size: var(--fs-base);
 }
 
 button {
-  font-size: var(--button-font-size);
+  font-size: var(--fs-base);
 }
 
 /* Additional styles */
 body {
   font-family: 'Karla', sans-serif;
   background-color: var(--ivory); /* Use the ivory color variable */
+  transition: background-color 1.5s ease;
+
 }
 
 section {
-  margin-top: 5%;
-  margin-bottom:5%;
+  margin-top: 20%;
+  margin-bottom:20%;
 }
 
 li {
@@ -99,6 +114,29 @@ li {
 ul {
   padding-left:0px;
 }
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--ivory);
+  transition: 0.5s;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #FFFFFF;
+}
+
+
+.navbar-nav.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.instagram-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Make sure the icon height is 100% of its container */
+}
+
 
 .btn-dark {
   background: var(--blue);
@@ -124,7 +162,7 @@ ul {
   position: relative;
   overflow: hidden;
   background-color: var(--blue);
-  color: white;
+  color: var(--ivory);
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 16px;
@@ -163,6 +201,21 @@ ul {
   transition: color 0.3s ease;
 }
 
+.green-slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--green);
+  z-index: 0;
+  transition: left 0.5s ease;
+}
+
+.green-slide:hover span {
+  color: var(--ivory);
+}
 
 .blue {
   color: var(--blue);
@@ -180,82 +233,101 @@ header.navbar {
   position: fixed; /* Ensure the navbar stays at the top */
   width: 100%;
   z-index: 1000; /* Ensure the navbar is on top of other elements */
-  transition: opacity 0.5s, top 0.5s; /* Smooth transition for fade and movement */
-}
-
-.nav-link {
-  color: var(--ivory);
+  transition: opacity 0.5s, top 0.5s; /* Smooth transition for de and movement */
 }
 
 .instagram-icon {
   font-size: 32px;
+  margin-right: 30px;
+  color: var(--ivory);
 }
 
 
 /* Navbar Toggler Button */
 .navbar-toggler {
-  background-color: white; /* Set hamburger button color */
+  background-color: none;
+
+}
+.navbar-toggler:focus{
+  outline: none;
+  box-shadow: none;
 }
 
-/* Overlay Styles */
+.navbar-toggler-icon {
+  background-image: none!important;
+  background-color: var(--bs-gray-800);
+  color: none;
+  width: var(--fs-xxl);
+}
+
+/* Overlay menu styles */
 .overlay {
   height: 100%;
-  width: 100%;
+  width: 0; /* Start with 0 width */
   position: fixed;
+  z-index: 1000; /* Ensure it covers all content */
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.8); /* Dark background with transparency */
-  z-index: 9999;
-  overflow-x: hidden;
-  transition: 0.5s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: var(--green);
+  overflow-x: hidden; /* Disable horizontal scrolling */
+  transition: 0.5s; /* Slide effect */
+  overflow: hidden;
 }
 
 .overlay-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: absolute;
+  top: 25%; /* 25% from the top */
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  font-weight: bold;
 }
 
-.overlay-content a,
-.overlay-content button {
+.overlay-content a {
+  padding: 8px;
   text-decoration: none;
-  font-size: 24px;
-  color: white;
-  padding: 10px;
-  transition: color 0.3s;
+  font-size: 36px;
+  color: var(--ivory);
+  display: block; /* Make links block-level elements */
+  transition: 0.3s;
 }
 
-.overlay-content a:hover,
-.overlay-content button:hover {
-  color: var(--blue); /* Change text color on hover */
+.overlay-content a:hover {
+  color: #f1f1f1;
 }
 
-/* Close Button */
 .closebtn {
   position: absolute;
   top: 20px;
-  right: 25px;
-  font-size: 36px;
-  color: white;
-  border: none;
+  right: 45px;
+  font-size: 60px;
   background: none;
-  cursor: pointer;
+  border: none;
+  color: var(--ivory);
+  transition: 0.3s;
+
 }
 
-/* Show the overlay */
-.overlay.d-none {
+
+
+.closebtn:hover {
+  color: #ffffff;
+}
+
+.closebtn:focus {
+  outline: none;
+  box-shadow: none;
+} 
+
+.nav-hidden {
   display: none;
 }
 
-/* When overlay is open */
-.overlay.open {
-  display: flex;
-}
 
+/* Show the overlay menu by increasing width */
+.show-overlay {
+  width: 100%;
+}
 .white-text {
   color: var(--ivory);
 }
@@ -273,12 +345,12 @@ header.navbar {
 }
 
 .hero-container {
-  margin-bottom: 2em;
+  margin-bottom: 4em;
 }
 
 /* Style the background image to cover the entire section */
 .hero-img-background {
-  background-image: url('assets/images/pond-wide-dark-reduced.png'); /* Replace with your image path */
+  background-image: url('assets/images/pond-wide-cropped.png'); /* Replace with your image path */
   background-size: cover; /* Make the background cover the entire section */
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* Prevent the image from repeating */
@@ -290,7 +362,6 @@ header.navbar {
 }
 
 .hero-section h1 {
-  font-size: 48px;
   margin-bottom: 20px;
 }
 
@@ -307,11 +378,23 @@ header.navbar {
 }
 
 .feature-content {
-  padding:var(--feature-section-padding-lg);
-  background-color: var(--green);
-  color: var(--ivory);
+  padding: 5%;
   border-radius: var(--border-radius);
 }
+
+.gradient { 
+  background: rgb(16,93,158);
+  background: linear-gradient(117deg, rgba(16,93,158,1) -0%, rgba(168,134,185,1) 100%);
+  /*background: rgb(16,93,158);
+  background: linear-gradient(227deg, rgba(16,93,158,1) -0%, rgba(33,78,52,1) 100%);*/
+  color: var(--ivory);
+ }
+
+ .panoramic-img { 
+    background-image: url('assets/images/panorama.png');
+
+  }
+
 
 .feature-content h2 {
   margin-bottom: 20px;
@@ -321,15 +404,43 @@ header.navbar {
   margin-bottom: 20px;
 }
 
+.centered-no-back {
+  text-align: center;
+  padding: 0% 10% 0% 10%;
+  font-weight: bold;
+  font-size: var(--fs-md);
+}
+
 
 .feature-image {
   flex: 1;
   height: 100%;
-  background-image: url('assets/images/DSC00505-2.jpg');
   background-size: cover;
   background-position: center;
   border-radius: var(--border-radius);
 }
+
+.feature-image-slide {
+  flex: 1;
+  height: 100%;
+  border-radius: var(--border-radius);
+  background-size: cover; /* Start at 90% size */
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-size 0.1s ease; /* Smooth transition */
+}
+
+.with-text { 
+  padding:20%;
+  border-radius: var(--border-radius);
+  text-align: center;
+  color: var(--ivory);
+}
+
+.our-story {
+  background-image: url('assets/images/DSC00490.jpg');
+}
+
 
 .split-text {
   margin-right: 0px;
@@ -361,6 +472,10 @@ header.navbar {
 
 }
 
+#mobileCarousel{
+  border-radius: var(--border-radius);
+}
+
 .carousel-inner {
   border-radius: var(--border-radius);
 }
@@ -371,10 +486,11 @@ header.navbar {
 
 
 .panel {
-  background: var(--blue);
+  background: var(--green);
   color: var(--ivory);
-  padding: 25px;
+  padding: 10% 15% 10% 15%;
   border-radius:var(--border-radius);
+  transition: 0.3s ease;
 }
 
 .panel h3 {
@@ -383,6 +499,16 @@ header.navbar {
 
 .panel p {
   margin-bottom: 0; /* Remove default margin for paragraph */
+}
+
+
+.house-image-container {
+  margin-top: 5%;
+}
+
+.bf-footer{
+  color: var(--blue);
+
 }
 
 
@@ -419,9 +545,6 @@ header.navbar {
   }
 
 
-  .hero-section {
-    padding: 50px 0;
-  }
 
   .icon-box {
     text-align:center;
@@ -442,6 +565,12 @@ header.navbar {
 
 /* Medium devices (desktops, 768px and up) */
 @media (max-width: 768px) {
+
+  .feature-box {
+    display: block;
+  }
+
+
   .house-text-box ul {
     column-count: 4;
   }
@@ -466,6 +595,11 @@ header.navbar {
     font-size: var(--body-font-size-lg-screen);
   }
 
+}
+
+.quotes {
+  font-size: 2em;
+  color: var(--ivory);
 }
 
 
